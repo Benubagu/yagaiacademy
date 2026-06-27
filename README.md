@@ -21,8 +21,6 @@ yagai-academy/
 └── README.md           ← This file
 ```
 
----
-
 ## HOSTING REQUIREMENTS
 
 - Any standard **PHP shared hosting** (cPanel)
@@ -31,36 +29,17 @@ yagai-academy/
 - No database required
 - No frameworks or dependencies required
 
-**Recommended Nigerian Hosts:**
-- Whogohost
-- QServers
-- Smartweb Nigeria
-- DomainKing
-
----
-
-## DEPLOYMENT STEPS
-
-1. Purchase hosting and point domain `yagaiacademy.sch.ng` to it
-2. Log in to cPanel → File Manager
-3. Navigate to `public_html` folder
-4. Upload all files maintaining the folder structure above
-5. Create custom email addresses in cPanel (see below)
-6. Visit www.yagaiacademy.sch.ng — the site is live
-
----
-
 ## EMAIL SETUP (cPanel Webmail)
 
 Create these email addresses in cPanel → Email Accounts:
 
 | Address                              | Purpose                  |
 |--------------------------------------|--------------------------|
-| info@yagaiacademy.sch.ng             | General enquiries form   |
-| admissions@yagaiacademy.sch.ng       | Admissions form          |
-| principal@yagaiacademy.sch.ng        | Principal's office       |
-| boarding@yagaiacademy.sch.ng         | Boarding enquiries       |
-| noreply@yagaiacademy.sch.ng          | Outgoing system emails   |
+| info@yagaiacademy.com             | General enquiries form   |
+| admissions@yagaiacademy.com       | Admissions form          |
+| principal@yagaiacademy.com        | Principal's office       |
+| boarding@yagaiacademy.com         | Boarding enquiries       |
+| noreply@yagaiacademy.com          | Outgoing system emails   |
 
 These are already configured in `php/mailer.php`.
 
@@ -106,8 +85,8 @@ These are already configured in `php/mailer.php`.
 
 All three forms (Admissions, Contact, Modal) submit via AJAX to `php/mailer.php`.
 
-**Admissions form** → sends to: `admissions@yagaiacademy.sch.ng`
-**Contact form**    → sends to: `info@yagaiacademy.sch.ng`
+**Admissions form** → sends to: `admissions@yagaiacademy.com`
+**Contact form**    → sends to: `info@yagaiacademy.com`
 
 The mailer also sends an **automatic acknowledgement email** to the person who submitted the form (if they provided an email address).
 
