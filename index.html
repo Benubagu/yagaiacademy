@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yagai Academy – Perseverance, A Key to Success</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Cinzel:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy:   #1A1464;
+      --gold:   #C8A52B;
+      --crimson:#A01020;
+      --green:  #1A5C2A;
+      --cream:  #F8F4EC;
+      --white:  #FFFFFF;
+      --text:   #1A1A1A;
+      --muted:  #555;
+      --radius: 6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy);
+      color: #ccc;
+      font-size: .78rem;
+      padding: .5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .topbar a { color: var(--gold); text-decoration: none; }
+    .topbar .socials a { margin-left: .7rem; font-size: .9rem; color: #ccc; transition: color .2s; }
+    .topbar .socials a:hover { color: var(--gold); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: .8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: .9rem; text-decoration: none; }
+    .logo-wrap img { height: 64px; }
+    .logo-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .logo-text span {
+      font-size: .7rem;
+      color: var(--crimson);
+      letter-spacing: .06em;
+      font-style: italic;
+    }
+
+    /* ── NAV ── */
+    nav ul { list-style: none; display: flex; gap: .2rem; align-items: center; }
+    nav ul li { position: relative; }
+    nav ul li > a {
+      display: block;
+      padding: .55rem .85rem;
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background .2s, color .2s;
+      white-space: nowrap;
+    }
+    nav ul li > a:hover, nav ul li > a.active { background: var(--navy); color: var(--white); }
+    .has-drop:hover .dropdown { display: block; }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      min-width: 200px;
+      border: 1px solid #e0ddd5;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+      z-index: 200;
+    }
+    .dropdown li a {
+      color: var(--text);
+      padding: .6rem 1.1rem;
+      font-size: .82rem;
+    }
+    .dropdown li a:hover { background: var(--cream); color: var(--navy); }
+    .btn-apply {
+      background: var(--crimson);
+      color: var(--white) !important;
+      padding: .5rem 1.2rem !important;
+      border-radius: 30px !important;
+      font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+    .btn-apply:hover { background: #7a0018 !important; color: var(--white) !important; }
+    .hamburger { display: none; font-size: 1.4rem; cursor: pointer; color: var(--navy); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(26,20,100,.92) 0%, rgba(160,16,32,.75) 60%, rgba(26,92,42,.6) 100%),
+        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1200px;
+      margin: auto;
+      padding: 5rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-left { }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .8rem;
+      border-radius: 30px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero h2 span { color: var(--gold); }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.82);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      padding: .85rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: .95rem;
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,165,43,.4); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,.6);
+      color: var(--white);
+      font-weight: 600;
+      padding: .83rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: .95rem;
+      transition: border-color .2s, background .2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+    .hero-right { display: flex; flex-direction: column; gap: 1rem; }
+    .stat-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .stat-icon {
+      font-size: 1.8rem;
+      width: 52px; height: 52px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .stat-card h3 { font-size: 1.5rem; font-family: 'Playfair Display', serif; color: var(--gold); }
+    .stat-card p { font-size: .8rem; color: rgba(255,255,255,.75); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.5);
+      font-size: .75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1200px; margin: auto; }
+    .section-label {
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .section-sub {
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.7;
+      font-size: .95rem;
+    }
+    .divider {
+      width: 56px; height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 1.2rem 0 2.5rem;
+    }
+    .divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img {
+      width: 100%; border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.15);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    }
+    .about-badge .big { font-size: 2rem; font-family: 'Playfair Display',serif; color: var(--gold); display:block; }
+    .about-badge small { font-size: .72rem; opacity: .8; }
+    .about-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; margin-top: 1.5rem; }
+    .about-list li { display: flex; align-items: flex-start; gap: .7rem; font-size: .9rem; color: var(--muted); }
+    .about-list li i { color: var(--green); margin-top: .15rem; flex-shrink: 0; }
+
+    /* ── SCHOOLS ── */
+    #schools { background: var(--cream); }
+    .schools-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.8rem; margin-top: 3rem; }
+    .school-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      transition: transform .25s, box-shadow .25s;
+      display: flex; flex-direction: column;
+    }
+    .school-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.14); }
+    .school-card-img {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+    }
+    .school-card-img.nursery { background: linear-gradient(135deg,#ffecd2,#fcb69f); }
+    .school-card-img.primary { background: linear-gradient(135deg,#a1c4fd,#c2e9fb); }
+    .school-card-img.secondary { background: linear-gradient(135deg,#d4fc79,#96e6a1); }
+    .school-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .school-card-body h3 { font-family: 'Playfair Display',serif; color: var(--navy); margin-bottom: .5rem; font-size: 1.15rem; }
+    .school-card-body p { font-size: .85rem; color: var(--muted); line-height: 1.6; flex:1; }
+    .school-card-body a {
+      display: inline-block;
+      margin-top: 1.2rem;
+      color: var(--crimson);
+      font-weight: 600;
+      font-size: .83rem;
+      text-decoration: none;
+    }
+    .school-card-body a:hover { text-decoration: underline; }
+
+    /* ── BOARDING ── */
+    #boarding { background: var(--navy); color: var(--white); }
+    .boarding-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .boarding-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+    .bf-item {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 1.1rem;
+      display: flex; align-items: flex-start; gap: .8rem;
+    }
+    .bf-item i { color: var(--gold); font-size: 1.1rem; margin-top: .1rem; }
+    .bf-item p { font-size: .82rem; color: rgba(255,255,255,.78); line-height: 1.5; }
+    .bf-item strong { display: block; color: var(--white); margin-bottom: .2rem; font-size: .88rem; }
+    .boarding-visual {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .boarding-visual i { font-size: 5rem; color: var(--gold); }
+    .boarding-visual h4 { font-family: 'Playfair Display',serif; font-size: 1.3rem; margin-top: 1rem; color: var(--gold); }
+    .boarding-visual p { color: rgba(255,255,255,.7); font-size: .9rem; margin-top: .5rem; line-height: 1.6; }
+
+    /* ── ACADEMICS ── */
+    #academics { background: var(--white); }
+    .subjects-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2.5rem; }
+    .subj-chip {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+      display: flex; align-items: center; gap: .7rem;
+      font-size: .83rem; font-weight: 500; color: var(--navy);
+      border: 1px solid #e0ddd5;
+      transition: background .2s, border-color .2s;
+    }
+    .subj-chip:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .subj-chip i { color: var(--gold); font-size: 1rem; }
+
+    /* ── ADMISSIONS ── */
+    #admissions { background: var(--cream); }
+    .admission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .step { display: flex; gap: 1.2rem; }
+    .step-num {
+      width: 40px; height: 40px;
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 50%;
+      font-family: 'Playfair Display',serif;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h4 { color: var(--navy); margin-bottom: .3rem; font-size: .95rem; }
+    .step-body p { color: var(--muted); font-size: .83rem; line-height: 1.6; }
+
+    /* ── CONTACT FORM ── */
+    .form-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    }
+    .form-card h3 { font-family: 'Playfair Display',serif; color: var(--navy); margin-bottom: 1.5rem; font-size: 1.2rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: .8rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .7rem .9rem;
+      border: 1.5px solid #d8d4ca;
+      border-radius: var(--radius);
+      font-family: 'Inter',sans-serif;
+      font-size: .88rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy); background: var(--white); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      width: 100%;
+      padding: .85rem;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .95rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: .5rem;
+      transition: background .2s;
+      font-family: 'Inter',sans-serif;
+    }
+    .btn-submit:hover { background: var(--crimson); }
+
+    /* ── NEWS ── */
+    #news { background: var(--white); }
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.8rem; margin-top: 2.5rem; }
+    .news-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e8e4da;
+      transition: box-shadow .25s;
+    }
+    .news-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); }
+    .news-img {
+      height: 130px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+    }
+    .nc-1 { background: linear-gradient(135deg,#f5d0a9,#e8a87c); }
+    .nc-2 { background: linear-gradient(135deg,#b5c7f0,#8fa8e0); }
+    .nc-3 { background: linear-gradient(135deg,#b5e8c8,#7cd8a0); }
+    .news-body { padding: 1.2rem; }
+    .news-date { font-size: .72rem; color: var(--gold); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .news-body h4 { font-family: 'Playfair Display',serif; color: var(--navy); margin: .5rem 0 .5rem; font-size: 1rem; }
+    .news-body p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .news-link { font-size: .8rem; color: var(--crimson); font-weight: 600; text-decoration: none; margin-top: .7rem; display:inline-block; }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--cream); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2.5rem; }
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem;
+      cursor: pointer;
+      transition: transform .2s;
+      overflow: hidden;
+    }
+    .gallery-item:hover { transform: scale(1.04); }
+    .gi-1 { background: linear-gradient(135deg,#667eea,#764ba2); }
+    .gi-2 { background: linear-gradient(135deg,#f093fb,#f5576c); }
+    .gi-3 { background: linear-gradient(135deg,#4facfe,#00f2fe); }
+    .gi-4 { background: linear-gradient(135deg,#43e97b,#38f9d7); }
+    .gi-5 { background: linear-gradient(135deg,#fa709a,#fee140); }
+    .gi-6 { background: linear-gradient(135deg,#a18cd1,#fbc2eb); }
+    .gi-7 { background: linear-gradient(135deg,#ffecd2,#fcb69f); }
+    .gi-8 { background: linear-gradient(135deg,#96fbc4,#f9f586); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--navy); color: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .testi-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 1.8rem;
+    }
+    .testi-stars { color: var(--gold); margin-bottom: .8rem; font-size: .9rem; }
+    .testi-card p { font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.7; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+    .testi-avatar {
+      width: 42px; height: 42px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .testi-info strong { display: block; font-size: .88rem; color: var(--white); }
+    .testi-info span { font-size: .75rem; color: rgba(255,255,255,.55); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-info-items { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
+    .ci-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .ci-icon {
+      width: 44px; height: 44px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .ci-item h4 { font-size: .85rem; color: var(--navy); font-weight: 600; margin-bottom: .2rem; }
+    .ci-item p, .ci-item a { font-size: .84rem; color: var(--muted); text-decoration: none; }
+    .ci-item a:hover { color: var(--crimson); }
+    .map-placeholder {
+      height: 220px;
+      background: linear-gradient(135deg,#e0eaf5,#c8d8ec);
+      border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: var(--navy);
+      gap: .5rem;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      border: 2px dashed #b0c0d8;
+    }
+    .map-placeholder i { font-size: 2.5rem; }
+    .map-placeholder p { font-size: .82rem; font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0e0c3a;
+      color: rgba(255,255,255,.75);
+      padding: 4rem 2rem 0;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-brand img { height: 60px; margin-bottom: 1rem; }
+    .footer-brand p { font-size: .83rem; line-height: 1.7; color: rgba(255,255,255,.6); max-width: 280px; }
+    .footer-socials { display: flex; gap: .7rem; margin-top: 1.2rem; }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .footer-socials a:hover { background: var(--gold); color: var(--navy); }
+    .footer-col h4 {
+      font-family: 'Playfair Display',serif;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col ul li a { color: rgba(255,255,255,.6); font-size: .83rem; text-decoration: none; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1200px; margin: 3rem auto 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 1.2rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .5rem;
+      font-size: .76rem; color: rgba(255,255,255,.4);
+    }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: var(--crimson);
+      color: var(--white);
+      text-align: center;
+      padding: .5rem 1rem;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+    .announce a { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-right { display: none; }
+      .about-grid, .boarding-grid, .contact-grid, .admission-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-badge { position: static; margin-top: 1rem; display: inline-block; }
+      .schools-grid, .news-grid, .testi-grid { grid-template-columns: 1fr; }
+      .subjects-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      nav.open { display: block; }
+      nav ul { flex-direction: column; padding: 1rem; }
+      nav ul li .dropdown { position: static; box-shadow: none; border: none; background: #f0eee8; margin-top: .3rem; }
+      .hamburger { display: block; }
+      header { position: relative; }
+      .boarding-features { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .subjects-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 2000;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      max-width: 500px; width: 90%;
+      padding: 2.5rem;
+      position: relative;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal h3 { font-family: 'Playfair Display',serif; color: var(--navy); margin-bottom: 1.5rem; }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1.2rem;
+      font-size: 1.4rem; cursor: pointer; color: var(--muted);
+      background: none; border: none;
+    }
+    .success-msg {
+      display: none;
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #2e7d32;
+      padding: .9rem 1.2rem;
+      border-radius: 8px;
+      font-size: .88rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  📢 2025/2026 Admissions Now Open! &nbsp;<a href="#admissions">Apply Today →</a>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>
+    <i class="fas fa-envelope"></i>&nbsp;
+    <a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <i class="fas fa-map-marker-alt"></i>&nbsp;
+    P.M.B. 1180, Jalingo, Taraba State
+  </div>
+  <div class="socials">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo-wrap">
+      <img src="yagai-logo.png" alt="Yagai Academy Logo" onerror="this.style.display='none'"/>
+      <div class="logo-text">
+        <h1>Yagai Academy</h1>
+        <span>Perseverance, A Key to Success</span>
+      </div>
+    </a>
+    <span class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></span>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="has-drop">
+          <a href="#schools">Schools ▾</a>
+          <ul class="dropdown">
+            <li><a href="#schools">Nursery School</a></li>
+            <li><a href="#schools">Primary School</a></li>
+            <li><a href="#schools">Secondary School</a></li>
+            <li><a href="#boarding">Boarding Facility</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="#academics">Academics ▾</a>
+          <ul class="dropdown">
+            <li><a href="#academics">Curriculum</a></li>
+            <li><a href="#academics">Subjects Offered</a></li>
+            <li><a href="#academics">Extracurriculars</a></li>
+            <li><a href="#academics">Examinations</a></li>
+          </ul>
+        </li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="btn-apply" onclick="openModal()">Apply Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <h2>Where <span>Perseverance</span> Unlocks Every Future</h2>
+      <p>Yagai Academy nurtures curious minds from Nursery through Secondary level, blending academic excellence with strong moral values in a safe boarding environment.</p>
+      <div class="hero-cta">
+        <a href="#admissions" class="btn-primary">Apply for Admission</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+        <div>
+          <h3>500+</h3>
+          <p>Students Enrolled Across All Levels</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div>
+          <h3>40+</h3>
+          <p>Qualified & Experienced Educators</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+        <div>
+          <h3>95%</h3>
+          <p>WAEC/NECO Pass Rate</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-home"></i></div>
+        <div>
+          <h3>3</h3>
+          <p>Schools in One Campus — Nursery, Primary, Secondary</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll">
+    <span>Scroll</span>
+    <i class="fas fa-chevron-down"></i>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Yagai Academy Campus"/>
+        <div class="about-badge">
+          <span class="big">Est.</span>
+          <small>Jalingo, Taraba</small>
+        </div>
+      </div>
+      <div>
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">A Legacy of Academic Excellence in Taraba State</h2>
+        <div class="divider"></div>
+        <p style="color:var(--muted);line-height:1.75;font-size:.93rem;">
+          Yagai Academy is a premier boarding institution located opposite the College of Nursing and Midwifery in Jalingo, Taraba State. Founded on the belief that perseverance is truly the key to success, we provide world-class education from Nursery through Secondary school in a safe, nurturing, and disciplined environment.
+        </p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> Fully equipped science and computer laboratories</li>
+          <li><i class="fas fa-check-circle"></i> Modern boarding facilities for boys and girls</li>
+          <li><i class="fas fa-check-circle"></i> Dedicated, qualified, and passionate teaching staff</li>
+          <li><i class="fas fa-check-circle"></i> Strong WAEC, NECO, and Common Entrance track record</li>
+          <li><i class="fas fa-check-circle"></i> Active sports, cultural, and debate clubs</li>
+          <li><i class="fas fa-check-circle"></i> Safe, green campus with serene learning atmosphere</li>
+        </ul>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#schools" class="btn-primary" style="color:var(--navy);">Our Schools</a>
+          <a href="#contact" class="btn-outline" style="color:var(--navy);border-color:var(--navy);">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOLS -->
+<section id="schools">
+  <div class="section-inner">
+    <p class="section-label" style="text-align:center;">Our Schools</p>
+    <h2 class="section-title" style="text-align:center;">Three Schools, One Vision</h2>
+    <div class="divider center"></div>
+    <p class="section-sub" style="text-align:center;margin:auto;">From your child's very first school day through to their secondary certificate, Yagai Academy walks every step of the journey with them.</p>
+    <div class="schools-grid">
+      <div class="school-card">
+        <div class="school-card-img nursery">🎨</div>
+        <div class="school-card-body">
+          <h3>Nursery School</h3>
+          <p>Our early childhood programme builds a love of learning through play, creativity, and foundational literacy and numeracy skills in a warm, welcoming environment.</p>
+          <a href="#admissions">Enrol a Child →</a>
+        </div>
+      </div>
+      <div class="school-card">
+        <div class="school-card-img primary">📚</div>
+        <div class="school-card-body">
+          <h3>Primary School</h3>
+          <p>Primary education at Yagai instils discipline, critical thinking, and a broad knowledge base in English, Mathematics, Basic Science, Social Studies, and more.</p>
+          <a href="#admissions">Enrol a Child →</a>
+        </div>
+      </div>
+      <div class="school-card">
+        <div class="school-card-img secondary">🎓</div>
+        <div class="school-card-body">
+          <h3>Secondary School</h3>
+          <p>Our Secondary programme prepares students for WAEC, NECO, and university entrance examinations with a rich curriculum and excellent teacher-to-student ratios.</p>
+          <a href="#admissions">Enrol a Child →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARDING -->
+<section id="boarding">
+  <div class="section-inner">
+    <div class="boarding-grid">
+      <div>
+        <p class="section-label" style="color:var(--gold);">Boarding Facility</p>
+        <h2 class="section-title" style="color:var(--white);">A Home Away From Home</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,.75);font-size:.93rem;line-height:1.75;max-width:480px;">
+          Our fully residential boarding programme provides a structured, secure, and stimulating environment where students grow academically, socially, and in character. Students enjoy excellent meals, supervised study periods, and a full extracurricular programme.
+        </p>
+        <div class="boarding-features">
+          <div class="bf-item"><i class="fas fa-bed"></i><div><strong>Comfortable Dormitories</strong><p>Separate, well-maintained hostels for boys and girls.</p></div></div>
+          <div class="bf-item"><i class="fas fa-utensils"></i><div><strong>Balanced Nutrition</strong><p>Three nutritious meals and snacks daily.</p></div></div>
+          <div class="bf-item"><i class="fas fa-shield-alt"></i><div><strong>24/7 Security</strong><p>Round-the-clock supervision and security personnel.</p></div></div>
+          <div class="bf-item"><i class="fas fa-book-open"></i><div><strong>Evening Prep</strong><p>Structured supervised study hours every evening.</p></div></div>
+          <div class="bf-item"><i class="fas fa-medkit"></i><div><strong>Medical Care</strong><p>On-site health clinic and first-aid support.</p></div></div>
+          <div class="bf-item"><i class="fas fa-futbol"></i><div><strong>Sports & Recreation</strong><p>Football, volleyball, athletics, and leisure activities.</p></div></div>
+        </div>
+      </div>
+      <div class="boarding-visual">
+        <i class="fas fa-building"></i>
+        <h4>Boarding Secondary School</h4>
+        <p>Opposite College of Nursing and Midwifery, P.M.B. 1180, Jalingo, Taraba State.</p>
+        <a href="#contact" style="display:inline-block;margin-top:1.5rem;background:var(--gold);color:var(--navy);padding:.7rem 1.8rem;border-radius:30px;font-weight:700;text-decoration:none;font-size:.88rem;">Enquire About Boarding</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics">
+  <div class="section-inner">
+    <p class="section-label">Academics</p>
+    <h2 class="section-title">Curriculum & Subjects Offered</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Our broad and balanced curriculum is designed to challenge every student, develop their talents, and prepare them for examinations and life beyond school.</p>
+    <div class="subjects-grid">
+      <div class="subj-chip"><i class="fas fa-calculator"></i> Mathematics</div>
+      <div class="subj-chip"><i class="fas fa-book"></i> English Language</div>
+      <div class="subj-chip"><i class="fas fa-flask"></i> Basic Science</div>
+      <div class="subj-chip"><i class="fas fa-globe-africa"></i> Social Studies</div>
+      <div class="subj-chip"><i class="fas fa-atom"></i> Physics</div>
+      <div class="subj-chip"><i class="fas fa-vial"></i> Chemistry</div>
+      <div class="subj-chip"><i class="fas fa-leaf"></i> Biology</div>
+      <div class="subj-chip"><i class="fas fa-landmark"></i> Government</div>
+      <div class="subj-chip"><i class="fas fa-chart-line"></i> Economics</div>
+      <div class="subj-chip"><i class="fas fa-pen-nib"></i> Literature in English</div>
+      <div class="subj-chip"><i class="fas fa-laptop-code"></i> Computer Studies</div>
+      <div class="subj-chip"><i class="fas fa-cross"></i> Christian Religious Studies</div>
+      <div class="subj-chip"><i class="fas fa-star-and-crescent"></i> Islamic Studies</div>
+      <div class="subj-chip"><i class="fas fa-paint-brush"></i> Fine Arts</div>
+      <div class="subj-chip"><i class="fas fa-language"></i> Hausa Language</div>
+      <div class="subj-chip"><i class="fas fa-music"></i> Music & Cultural Arts</div>
+    </div>
+    <div style="margin-top:3rem;background:var(--cream);border-radius:14px;padding:2rem;display:flex;gap:2rem;flex-wrap:wrap;align-items:center;">
+      <div style="flex:1;min-width:200px;">
+        <h3 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:.5rem;">External Examinations</h3>
+        <p style="color:var(--muted);font-size:.88rem;line-height:1.6;">We prepare students for WAEC, NECO, NABTEB, and Junior WAEC, achieving consistently excellent results.</p>
+      </div>
+      <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
+        <div style="text-align:center;background:var(--white);border-radius:10px;padding:.9rem 1.3rem;border:1px solid #e0ddd5;">
+          <div style="font-size:1.5rem;color:var(--navy);">📜</div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--navy);margin-top:.3rem;">WAEC</div>
+        </div>
+        <div style="text-align:center;background:var(--white);border-radius:10px;padding:.9rem 1.3rem;border:1px solid #e0ddd5;">
+          <div style="font-size:1.5rem;color:var(--navy);">📜</div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--navy);margin-top:.3rem;">NECO</div>
+        </div>
+        <div style="text-align:center;background:var(--white);border-radius:10px;padding:.9rem 1.3rem;border:1px solid #e0ddd5;">
+          <div style="font-size:1.5rem;color:var(--navy);">📜</div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--navy);margin-top:.3rem;">Junior WAEC</div>
+        </div>
+        <div style="text-align:center;background:var(--white);border-radius:10px;padding:.9rem 1.3rem;border:1px solid #e0ddd5;">
+          <div style="font-size:1.5rem;color:var(--navy);">📜</div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--navy);margin-top:.3rem;">Common Entrance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions">
+  <div class="section-inner">
+    <p class="section-label">Admissions</p>
+    <h2 class="section-title">Join the Yagai Family</h2>
+    <div class="divider"></div>
+    <div class="admission-grid">
+      <div>
+        <p class="section-sub">We welcome applications from pupils and students of all backgrounds. Our admissions process is straightforward and merit-based.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Complete Application Form</h4>
+              <p>Fill out the online form on this page or collect a physical form from our school office in Jalingo.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Submit Required Documents</h4>
+              <p>Birth certificate, last school result/report card, passport photographs, and parent/guardian ID.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Entrance Assessment</h4>
+              <p>Candidates write a brief entrance assessment in English and Mathematics relevant to their level.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Offer Letter & Acceptance</h4>
+              <p>Successful candidates receive an admission letter and pay the required fees to confirm their place.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <h4>Resumption & Orientation</h4>
+              <p>New students attend a two-day orientation programme before the start of term.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Apply for Admission</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Child's First Name *</label>
+            <input type="text" placeholder="First name" required/>
+          </div>
+          <div class="form-group">
+            <label>Child's Surname *</label>
+            <input type="text" placeholder="Surname" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Applying For *</label>
+          <select>
+            <option value="">Select school level</option>
+            <option>Nursery School</option>
+            <option>Primary School</option>
+            <option>Secondary School (Day)</option>
+            <option>Secondary School (Boarding)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Class / Year Applying For</label>
+            <input type="text" placeholder="e.g. JSS 1, Primary 4"/>
+          </div>
+          <div class="form-group">
+            <label>Child's Date of Birth</label>
+            <input type="date"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Parent / Guardian Name *</label>
+          <input type="text" placeholder="Full name"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" placeholder="08X XXX XXXXX"/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="email@example.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Information</label>
+          <textarea rows="3" placeholder="Any special needs, questions, or notes..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm(this)">Submit Application</button>
+        <div class="success-msg" id="form-success">
+          ✅ Thank you! Your application has been received. We will contact you within 2–3 working days.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-inner">
+    <p class="section-label">Latest Updates</p>
+    <h2 class="section-title">News & Announcements</h2>
+    <div class="divider"></div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-img nc-1">🏆</div>
+        <div class="news-body">
+          <p class="news-date">June 2025</p>
+          <h4>Outstanding WAEC Results for 2024/2025 Set</h4>
+          <p>We are proud to announce that over 95% of our SS3 candidates achieved credit passes in five or more subjects in the 2025 WAEC examination.</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img nc-2">📚</div>
+        <div class="news-body">
+          <p class="news-date">May 2025</p>
+          <h4>New Science Laboratory Equipment Installed</h4>
+          <p>Yagai Academy has upgraded its Physics and Chemistry laboratories with modern equipment to enhance practical learning for SS students.</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img nc-3">⚽</div>
+        <div class="news-body">
+          <p class="news-date">April 2025</p>
+          <h4>Yagai Academy Wins Taraba Inter-School Football Cup</h4>
+          <p>Our under-16 football team clinched the Taraba State Inter-School Football Championship trophy for the second year running!</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="#" style="color:var(--navy);font-weight:600;font-size:.9rem;border:2px solid var(--navy);padding:.7rem 1.8rem;border-radius:30px;text-decoration:none;display:inline-block;">View All News &amp; Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <p class="section-label" style="text-align:center;">Gallery</p>
+    <h2 class="section-title" style="text-align:center;">Life at Yagai Academy</h2>
+    <div class="divider center"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item gi-1">🎓</div>
+      <div class="gallery-item gi-2">🎭</div>
+      <div class="gallery-item gi-3">⚽</div>
+      <div class="gallery-item gi-4">🔬</div>
+      <div class="gallery-item gi-5">📖</div>
+      <div class="gallery-item gi-6">🎵</div>
+      <div class="gallery-item gi-7">🏅</div>
+      <div class="gallery-item gi-8">🌿</div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="#" style="color:var(--crimson);font-weight:600;font-size:.88rem;text-decoration:none;">View Full Photo Gallery →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <p class="section-label" style="color:var(--gold);text-align:center;">What People Say</p>
+    <h2 class="section-title" style="color:var(--white);text-align:center;">Voices of Our Community</h2>
+    <div class="divider center"></div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Yagai Academy gave my daughter the discipline and confidence she needed. She scored distinctions in her WAEC and is now studying Medicine at university."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">FK</div>
+          <div class="testi-info">
+            <strong>Mrs. Fatima Kefas</strong>
+            <span>Parent — SS3 Graduate</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The boarding experience at Yagai was transformative. I made lifelong friends, grew in character, and left fully prepared for university life."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AU</div>
+          <div class="testi-info">
+            <strong>Abdullahi Umar</strong>
+            <span>Alumni — Class of 2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p>"The teachers here genuinely care. My son struggled in primary school elsewhere, but Yagai's patient staff brought out the best in him."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">BJ</div>
+          <div class="testi-info">
+            <strong>Mr. Barnabas Jalingo</strong>
+            <span>Parent — Primary School</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact Yagai Academy</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <p class="section-sub">We'd love to hear from you. Reach out with any questions about admissions, boarding, or school life.</p>
+        <div class="contact-info-items">
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Our Address</h4>
+              <p>Opposite College of Nursing and Midwifery,<br/>P.M.B. 1180, Jalingo, Taraba State, Nigeria.</p>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email Us</h4>
+              <a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <a href="http://www.yagaiacademy.sch.ng" target="_blank">www.yagaiacademy.sch.ng</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h4>Website</h4>
+              <a href="http://www.yagaiacademy.sch.ng" target="_blank">www.yagaiacademy.sch.ng</a>
+            </div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp Enquiries</h4>
+              <a href="#">Click to chat on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=Jalingo+Taraba+State+Nigeria" target="_blank" class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <p>View on Google Maps</p>
+          <small style="font-size:.74rem;color:var(--muted);">Jalingo, Taraba State</small>
+        </a>
+      </div>
+      <div class="form-card">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="First name"/>
+          </div>
+          <div class="form-group">
+            <label>Surname</label>
+            <input type="text" placeholder="Surname"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="08X XXX XXXXX"/>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>General Enquiry</option>
+            <option>Admissions</option>
+            <option>Boarding Facility</option>
+            <option>Academic Programmes</option>
+            <option>Fees & Payments</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Type your message here..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitContact(this)">Send Message</button>
+        <div class="success-msg" id="contact-success">
+          ✅ Message sent! We will respond within 24–48 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="yagai-logo.png" alt="Yagai Academy" onerror="this.style.display='none'"/>
+      <p>Yagai Academy is a boarding secondary school in Jalingo, Taraba State, Nigeria, dedicated to nurturing excellence from Nursery to Secondary level.</p>
+      <p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.45);">
+        <em>"Perseverance, A Key to Success"</em>
+      </p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#schools">Our Schools</a></li>
+        <li><a href="#boarding">Boarding</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Schools</h4>
+      <ul>
+        <li><a href="#schools">Nursery School</a></li>
+        <li><a href="#schools">Primary School</a></li>
+        <li><a href="#schools">Secondary School</a></li>
+        <li><a href="#boarding">Boarding Facility</a></li>
+        <li><a href="#academics">Subjects Offered</a></li>
+        <li><a href="#academics">Examinations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a></li>
+        <li><a href="http://www.yagaiacademy.sch.ng">www.yagaiacademy.sch.ng</a></li>
+        <li><a href="#">P.M.B. 1180, Jalingo</a></li>
+        <li><a href="#">Taraba State, Nigeria</a></li>
+        <li><a href="#">Opp. College of Nursing</a></li>
+        <li><a href="#">& Midwifery, Jalingo</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Yagai Academy. All Rights Reserved.</span>
+    <span>
+      <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="#">Terms of Use</a> &nbsp;·&nbsp;
+      <a href="http://www.yagaiacademy.sch.ng">www.yagaiacademy.sch.ng</a>
+    </span>
+  </div>
+</footer>
+
+<!-- APPLY MODAL -->
+<div class="modal-overlay" id="apply-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Apply to Yagai Academy</h3>
+    <div class="form-group">
+      <label>Child's Full Name *</label>
+      <input type="text" placeholder="First and surname"/>
+    </div>
+    <div class="form-group">
+      <label>School Level Applying For *</label>
+      <select>
+        <option value="">Select level</option>
+        <option>Nursery School</option>
+        <option>Primary School</option>
+        <option>Secondary School (Day)</option>
+        <option>Secondary School (Boarding)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Parent / Guardian Phone *</label>
+      <input type="tel" placeholder="08X XXX XXXXX"/>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="email@example.com"/>
+    </div>
+    <button class="btn-submit" onclick="submitModal()">Submit Application</button>
+    <div class="success-msg" id="modal-success">✅ Application received! We'll contact you soon.</div>
+  </div>
+</div>
+
+<script>
+  function toggleNav() {
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('open');
+  }
+  function openModal() {
+    document.getElementById('apply-modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('apply-modal').classList.remove('open');
+  }
+  document.getElementById('apply-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  function submitForm(btn) {
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Submit Application';
+      btn.disabled = false;
+      document.getElementById('form-success').style.display = 'block';
+    }, 1400);
+  }
+  function submitContact(btn) {
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      document.getElementById('contact-success').style.display = 'block';
+    }, 1400);
+  }
+  function submitModal() {
+    document.getElementById('modal-success').style.display = 'block';
+    setTimeout(closeModal, 2200);
+  }
+  // Smooth active link highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav ul > li > a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
