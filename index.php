@@ -29,7 +29,7 @@
 <div class="topbar">
   <div>
     <i class="fas fa-envelope"></i>&nbsp;
-    <a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a>
+    <a href="mailto:info@yagaiacademy.com">info@yagaiacademy.com</a>
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <i class="fas fa-map-marker-alt"></i>&nbsp;
     P.M.B. 1180, Jalingo, Taraba State
@@ -486,21 +486,21 @@
             <div class="ci-icon"><i class="fas fa-envelope"></i></div>
             <div>
               <h4>General Enquiries</h4>
-              <a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a>
+              <a href="mailto:info@yagaiacademy.com">info@yagaiacademy.com</a>
             </div>
           </div>
           <div class="ci-item">
             <div class="ci-icon"><i class="fas fa-user-graduate"></i></div>
             <div>
               <h4>Admissions</h4>
-              <a href="mailto:admissions@yagaiacademy.sch.ng">admissions@yagaiacademy.sch.ng</a>
+              <a href="mailto:admissions@yagaiacademy.com">admissions@yagaiacademy.com</a>
             </div>
           </div>
           <div class="ci-item">
             <div class="ci-icon"><i class="fas fa-globe"></i></div>
             <div>
               <h4>Website</h4>
-              <a href="http://www.yagaiacademy.sch.ng" target="_blank">www.yagaiacademy.sch.ng</a>
+              <a href="http://www.yagaiacademy.com" target="_blank">www.yagaiacademy.com</a>
             </div>
           </div>
           <div class="ci-item">
@@ -607,9 +607,9 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="mailto:info@yagaiacademy.sch.ng">info@yagaiacademy.sch.ng</a></li>
-        <li><a href="mailto:admissions@yagaiacademy.sch.ng">admissions@yagaiacademy.sch.ng</a></li>
-        <li><a href="http://www.yagaiacademy.sch.ng">www.yagaiacademy.sch.ng</a></li>
+        <li><a href="mailto:info@yagaiacademy.com">info@yagaiacademy.com</a></li>
+        <li><a href="mailto:admissions@yagaiacademy.com">admissions@yagaiacademy.com</a></li>
+        <li><a href="http://www.yagaiacademy.com">www.yagaiacademy.com</a></li>
         <li><a href="#">P.M.B. 1180, Jalingo</a></li>
         <li><a href="#">Taraba State, Nigeria</a></li>
         <li><a href="#">Opp. College of Nursing & Midwifery</a></li>
@@ -621,7 +621,7 @@
     <span>
       <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
       <a href="#">Terms of Use</a> &nbsp;·&nbsp;
-      <a href="http://www.yagaiacademy.sch.ng">www.yagaiacademy.sch.ng</a>
+      <a href="http://www.yagaiacademy.com">www.yagaiacademy.com</a>
     </span>
   </div>
 </footer>
