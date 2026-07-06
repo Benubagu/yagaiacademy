@@ -1,6 +1,6 @@
 # YAGAI ACADEMY — Website Package
 ## Developer Handover Notes
-**Website:** www.yagaiacademy.sch.ng
+**Website:** www.yagaiacademy.com
 **Motto:** Perseverance, A Key to Success
 
 ---
@@ -33,8 +33,8 @@ yagai-academy/
 
 Create these email addresses in cPanel → Email Accounts:
 
-| Address                              | Purpose                  |
-|--------------------------------------|--------------------------|
+| Address                           | Purpose                  |
+|-----------------------------------|--------------------------|
 | info@yagaiacademy.com             | General enquiries form   |
 | admissions@yagaiacademy.com       | Admissions form          |
 | principal@yagaiacademy.com        | Principal's office       |
@@ -42,8 +42,6 @@ Create these email addresses in cPanel → Email Accounts:
 | noreply@yagaiacademy.com          | Outgoing system emails   |
 
 These are already configured in `php/mailer.php`.
-
----
 
 ## WHAT NEEDS UPDATING BEFORE LAUNCH
 
