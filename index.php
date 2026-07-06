@@ -572,7 +572,7 @@
       <p>Yagai Academy is a boarding secondary school in Jalingo, Taraba State, Nigeria, dedicated to nurturing excellence from Nursery to Secondary level.</p>
       <p style="margin-top:.5rem;font-size:.78rem;color:rgba(255,255,255,.45);"><em>"Perseverance, A Key to Success"</em></p>
       <div class="footer-socials">
-        <a href="https://facebook.com/yagaiacademy"  target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/share/1H5eyF8Jfh/"  target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com/yagaiacademy"   target="_blank" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
         <a href="https://instagram.com/yagaiacademy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/234XXXXXXXXXX"        target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
